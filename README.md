@@ -30,9 +30,12 @@ drug-discovery-ml/
 ├── utils/
 │   └── prepare_data.py
 │
+├── eda_analysis.ipynb   
+├── kurs.xlsx           
 ├── report.md
 ├── requirements.txt
-├── README.md  
+├── README.md
+
 
 
 ---
