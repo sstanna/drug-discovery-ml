@@ -1,0 +1,89 @@
+from markdown2 import markdown
+from weasyprint import HTML
+import os
+
+# Путь к изображениям
+image_files = {
+    "hist_IC50_mM.png": "/mnt/data/hist_IC50_mM.png",
+    "hist_CC50_mM.png": "/mnt/data/hist_CC50_mM.png",
+    "hist_SI.png": "/mnt/data/hist_SI.png",
+    "hist_MolWt.png": "/mnt/data/hist_MolWt.png",
+    "hist_qed.png": "/mnt/data/hist_qed.png",
+    "hist_TPSA.png": "/mnt/data/hist_TPSA.png",
+    "log_hist_IC50_mM.png": "/mnt/data/log_hist_IC50_mM.png",
+    "log_hist_CC50_mM.png": "/mnt/data/log_hist_CC50_mM.png",
+    "log_hist_SI.png": "/mnt/data/log_hist_SI.png",
+    "boxplot_IC50_mM.png": "/mnt/data/boxplot_IC50_mM.png",
+    "boxplot_CC50_mM.png": "/mnt/data/boxplot_CC50_mM.png",
+    "boxplot_SI.png": "/mnt/data/boxplot_SI.png",
+    "heatmap_targets_only.png": "/mnt/data/heatmap_targets_only.png",
+    "heatmap_full.png": "/mnt/data/heatmap_full.png"
+}
+
+# Содержимое markdown-документа
+md_content = """
+# Exploratory Data Analysis (EDA)
+
+## Гистограммы распределения признаков
+
+### Распределение IC50, mM
+![Распределение IC50, mM](hist_IC50_mM.png)
+
+### Распределение CC50, mM
+![Распределение CC50, mM](hist_CC50_mM.png)
+
+### Распределение SI
+![Распределение SI](hist_SI.png)
+
+### Распределение MolWt
+![Распределение MolWt](hist_MolWt.png)
+
+### Распределение qed
+![Распределение qed](hist_qed.png)
+
+### Распределение TPSA
+![Распределение TPSA](hist_TPSA.png)
+
+## Гистограммы логарифмированных признаков
+
+### Логарифм IC50, mM
+![Логарифм IC50, mM](log_hist_IC50_mM.png)
+
+### Логарифм CC50, mM
+![Логарифм CC50, mM](log_hist_CC50_mM.png)
+
+### Логарифм SI
+![Логарифм SI](log_hist_SI.png)
+
+## Boxplot
+
+### Boxplot для IC50, mM
+![Boxplot IC50, mM](boxplot_IC50_mM.png)
+
+### Boxplot для CC50, mM
+![Boxplot CC50, mM](boxplot_CC50_mM.png)
+
+### Boxplot для SI
+![Boxplot SI](boxplot_SI.png)
+
+## Тепловые карты корреляций
+
+### Корреляция между IC50, CC50 и SI
+![Корреляция IC50, CC50, SI](heatmap_targets_only.png)
+
+### Полная корреляционная матрица
+![Полная корреляционная матрица](heatmap_full.png)
+"""
+
+# Заменим пути к изображениям для HTML
+for img_name in image_files:
+    md_content = md_content.replace(f"({img_name})", f"({image_files[img_name]})")
+
+# Конвертация в HTML
+html_content = markdown(md_content)
+
+# Сохранение PDF
+pdf_path = "/mnt/data/EDA_Report.pdf"
+HTML(string=html_content).write_pdf(pdf_path)
+
+pdf_path
