@@ -2,7 +2,8 @@ import pandas as pd
 import numpy as np
 from sklearn.impute import SimpleImputer
 
-def load_and_prepare_data(path="kurs.xlsx"):
+def load_and_prepare_data(path="../kurs.xlsx"):
+    # ⬆ путь исправлен на "../kurs.xlsx", чтобы искать файл выше на один уровень
     df = pd.read_excel(path, engine='openpyxl')
     df.drop(columns=['Unnamed: 0'], inplace=True, errors='ignore')
     df.dropna(axis=1, how='all', inplace=True)

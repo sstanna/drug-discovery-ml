@@ -1,0 +1,29 @@
+# --- Jupyter Notebooks ---
+.ipynb_checkpoints/
+
+# --- Python ---
+__pycache__/
+*.py[cod]
+*.so
+
+# --- OS-specific files ---
+.DS_Store
+Thumbs.db
+
+# --- Virtual environments ---
+venv/
+.env/
+
+# --- Data artifacts ---
+*.joblib
+*.csv
+
+# --- Output files ---
+*.png
+*.svg
+*.pdf
+*.log
+
+# --- Optional ---
+.idea/
+.vscode/
