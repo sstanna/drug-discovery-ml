@@ -16,7 +16,7 @@
 
 ##  Структура проекта
 
-drug-discovery-ml/
+<pre>drug-discovery-ml/
 ├── regression/
 │ ├── regression_ic50.ipynb
 │ ├── regression_cc50.ipynb
@@ -35,7 +35,7 @@ drug-discovery-ml/
 ├── kurs.xlsx
 ├── report.md / report.pdf
 ├── requirements.txt
-└── README.md
+└── README.md</pre>
 ---
 
 ## 📈 Результаты моделей
